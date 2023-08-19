@@ -73,3 +73,32 @@ header {
   border-radius: 5px;
   padding: 0.5em 0;
 }
+
+/* Information */
+.information {
+  padding: 3em 12em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.information h1 {
+  font-size: 36px;
+  color: #1f2937;
+}
+.library-container {
+  display: flex;
+  margin-top: 2em;
+}
+.library {
+  text-align: center;
+  margin: 0 2em;
+}
+
+.library img {
+  width: 200px;
+  height: 200px;
+  display: block;
+  border: 5px solid #3882f6;
+  border-radius: 5px;
+}
