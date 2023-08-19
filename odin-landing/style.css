@@ -45,4 +45,31 @@ header {
 /* Hero */
 .hero {
   background-color: #1f2937;
+  padding: 6em 12em;
+  display: flex;
+}
+.hero-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hero-details h1 {
+  font-size: 48px;
+  color: #f9faf8;
+}
+.hero-details p {
+  font-size: 18px;
+  color: #e5e7eb;
+}
+
+.hero-details button {
+  font-size: 18px;
+  color: #f9faf8;
+  background-color: #3882f6;
+  width: 150px;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5em 0;
 }
