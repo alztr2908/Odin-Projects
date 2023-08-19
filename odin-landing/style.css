@@ -1,0 +1,48 @@
+/* 
+hero-background-color footer-background-color: #1F2937
+main-text: 48px extra-bold #F9FAF8
+secondary-text header-link-text: 18px #E5E7EB
+header-logo-text: 24px #F9FAF8
+
+button-color call-to-action-background-color: #3882F6
+information-header-text: 36px extra-bold #1F2937
+
+quote-background-color: #E5E7EB
+quote-text: 36px light italic ##1F2937
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Header */
+header {
+  background-color: #1f2937;
+  display: flex;
+  justify-content: space-between;
+  padding: 1em 12em;
+  align-items: center;
+}
+
+.logo {
+  font-size: 24px;
+  color: #f9faf8;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+}
+.nav li a {
+  font-size: 18px;
+  color: #e5e7eb;
+  text-decoration: none;
+  margin: 0 2em;
+}
+
+/* Hero */
+.hero {
+  background-color: #1f2937;
+}
