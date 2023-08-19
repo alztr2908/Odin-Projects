@@ -102,3 +102,23 @@ header {
   border: 5px solid #3882f6;
   border-radius: 5px;
 }
+
+/* quotes */
+.quotes {
+  background-color: #e5e7eb;
+  padding: 10em 25em;
+}
+
+.quotes h1 {
+  font-size: 36px;
+  color: #1f2937;
+  font-weight: 100;
+  margin-bottom: 0.5em;
+}
+
+.quotes h3 {
+  font-size: 24px;
+  color: #1f2937;
+  font-weight: 900;
+  text-align: end;
+}
