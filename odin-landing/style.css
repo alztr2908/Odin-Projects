@@ -72,6 +72,7 @@ header {
   border: none;
   border-radius: 5px;
   padding: 0.5em 0;
+  margin-top: 0.75em;
 }
 
 /* Information */
@@ -147,4 +148,12 @@ header {
   border: 1px solid #f9faf8;
   border-radius: 5px;
   padding: 0.5em 0;
+}
+
+/* footer */
+footer {
+  text-align: center;
+  color: #ffffff;
+  background-color: #1f2937;
+  padding: 2em 0;
 }
