@@ -122,3 +122,29 @@ header {
   font-weight: 900;
   text-align: end;
 }
+
+/* newsletter */
+.newsletter {
+  background-color: #3882f6;
+  margin: 8em 12em;
+  padding: 3em 9em;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #f9faf8;
+}
+
+.newsletter div p {
+  font-weight: 100;
+}
+.newsletter button {
+  font-size: 18px;
+  color: #f9faf8;
+  background-color: #3882f6;
+  width: 150px;
+  text-decoration: none;
+  border: 1px solid #f9faf8;
+  border-radius: 5px;
+  padding: 0.5em 0;
+}
