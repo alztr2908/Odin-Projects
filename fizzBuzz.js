@@ -1,11 +1,22 @@
 function fizzBuzz(n) {
   res = "";
-  if (n % 3 == 0) res += "Fizz";
-  if (n % 5 == 0) res += "Buzz";
 
-  return res;
+  for (let i = 1; i <= n; i++) {
+    if (i % 2 == 0) res += "Fizz";
+    if (i % 3 == 0) res += "Buzz";
+
+    if (res == "") {
+      console.log(i);
+    } else {
+      console.log(res);
+    }
+
+    res = "";
+  }
 }
 
-console.log(fizzBuzz(3));
-console.log(fizzBuzz(5));
-console.log(fizzBuzz(15));
+// console.log(0 % 3 == 0);
+
+// fizzBuzz(3);
+// fizzBuzz(5);
+fizzBuzz(15);
