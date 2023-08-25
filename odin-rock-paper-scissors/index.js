@@ -48,7 +48,11 @@ choicesButton.forEach((choice) => {
     playerSelection = choice.textContent;
     const computerSelection = getComputerChoice();
 
-    console.log(playRound(playerSelection, computerSelection));
+    // Reset score once computer or player score reached to 5
+    if (playerScore.textContent == 5 || computerScore.textContent == 5) {
+      playerScore.textContent = "0";
+      computerScore.textContent = "0";
+    }
 
     // Score points and display match results
     if (playRound(playerSelection, computerSelection) == "win") {
@@ -61,16 +65,13 @@ choicesButton.forEach((choice) => {
       resultsDisplay.textContent = `It's a tie!`;
     }
 
-    // Reset score once computer or player score reached to 5
-    if (playerScore.textContent >= 5 || computerScore.textContent >= 5) {
+    // Display winner when either score is 5
+    if (playerScore.textContent == 5 || computerScore.textContent == 5) {
       if (playerScore.textContent == 5) {
-        resultsDisplay.textContent = `You won the game! You win!`;
+        resultsDisplay.textContent += `You won the game! You win!`;
       } else if (computerScore.textContent == 5) {
-        resultsDisplay.textContent = `You lost the game! Computer wins!`;
+        resultsDisplay.textContent += `You lost the game! Computer wins!`;
       }
-
-      playerScore.textContent = "0";
-      computerScore.textContent = "0";
     }
   });
 });
