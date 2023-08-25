@@ -31,4 +31,31 @@ function game() {
   }
 }
 
-game();
+// const rockButton = document.querySelector("#rock");
+// const paperButton = document.querySelector("#paper");
+// const scissorsButton = document.querySelector("#scissors");
+const choicesButton = document.querySelectorAll("button");
+// var playerSelection = "";
+
+console.log(choicesButton);
+
+choicesButton.forEach((choice) => {
+  choice.addEventListener("click", () => {
+    playerSelection = choice.textContent;
+    const computerSelection = getComputerChoice();
+
+    console.log(playRound(playerSelection, computerSelection));
+
+    // return playRound(playerSelection, computerSelection);
+
+    // console.log(choice.textContent);
+  });
+});
+
+// console.log(playerSelection);
+// choicesButton.addEventListener("click", () => {
+//   // playerSelection = rockButton.textContent;
+//   console.log(choicesButton);
+// });
+
+// game();
