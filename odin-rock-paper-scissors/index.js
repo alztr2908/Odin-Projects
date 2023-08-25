@@ -1,3 +1,4 @@
+// Sanity check
 console.log("Hello world!");
 
 function getComputerChoice() {
@@ -11,15 +12,15 @@ function playRound(playerSelection, computerSelection) {
   playerSelection = playerSelection.toLowerCase();
 
   if (playerSelection === computerSelection) {
-    return "It's a tie!";
+    return "tie";
   } else if (playerSelection === "rock" && computerSelection === "scissors") {
-    return [`You win! ${playerSelection} beats ${computerSelection}`, true];
+    return "win";
   } else if (playerSelection === "paper" && computerSelection === "rock") {
-    return [`You win! ${playerSelection} beats ${computerSelection}`, true];
+    return "win";
   } else if (playerSelection === "scissors" && computerSelection === "paper") {
-    return [`You win! ${playerSelection} beats ${computerSelection}`, true];
+    return "win";
   } else {
-    return [`You lose! ${computerSelection} beats ${playerSelection}`, false];
+    return "lose";
   }
 }
 
@@ -37,8 +38,7 @@ function game() {
 const choicesButton = document.querySelectorAll("button");
 const playerScore = document.querySelector(".playerScore");
 const computerScore = document.querySelector(".computerScore");
-console.log(playerScore);
-console.log(computerScore);
+const resultsDisplay = document.querySelector(".resultsDisplay");
 // var playerSelection = "";
 
 console.log(choicesButton);
@@ -50,21 +50,29 @@ choicesButton.forEach((choice) => {
 
     console.log(playRound(playerSelection, computerSelection));
 
-    // Score points
-    if (playRound(playerSelection, computerSelection)[1]) {
-      // if win
+    // Score points and display match results
+    if (playRound(playerSelection, computerSelection) == "win") {
       playerScore.textContent = parseInt(playerScore.textContent) + 1;
-    } else if (!playRound(playerSelection, computerSelection)[1]) {
-      // if lose
+      resultsDisplay.textContent = `You win! ${playerSelection} beats ${computerSelection}`;
+    } else if (playRound(playerSelection, computerSelection) == "lose") {
       computerScore.textContent = parseInt(computerScore.textContent) + 1;
+      resultsDisplay.textContent = `You lose! ${computerSelection} beats ${playerSelection}`;
+    } else {
+      resultsDisplay.textContent = `It's a tie!`;
+    }
+
+    // Reset score once computer or player score reached to 5
+    if (playerScore.textContent >= 5 || computerScore.textContent >= 5) {
+      if (playerScore.textContent == 5) {
+        resultsDisplay.textContent = `You won the game! You win!`;
+      } else if (computerScore.textContent == 5) {
+        resultsDisplay.textContent = `You lost the game! Computer wins!`;
+      }
+
+      playerScore.textContent = "0";
+      computerScore.textContent = "0";
     }
   });
 });
-
-// console.log(playerSelection);
-// choicesButton.addEventListener("click", () => {
-//   // playerSelection = rockButton.textContent;
-//   console.log(choicesButton);
-// });
 
 // game();
