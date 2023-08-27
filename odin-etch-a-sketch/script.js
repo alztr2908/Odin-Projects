@@ -1,6 +1,5 @@
-function createGrid() {
+function createGrid(size) {
   // Define the grid dimensions
-  const size = 32;
 
   grid.style.gridTemplateColumns = `repeat(${size},1fr)`;
   grid.style.gridTemplateRows = `repeat(${size},1fr)`;
@@ -25,23 +24,37 @@ function clearGrid() {
   grid.textContent = ""; // remove all child of the grid
 }
 
-function resetGrid() {
+function resetGrid(size) {
   clearGrid();
-  createGrid(); // create new grid
+  createGrid(size); // create new grid
 }
 
 // sanity check
 console.log("Hello World!");
 
+const DEFAULT_SIZE = 16;
+
+let size = DEFAULT_SIZE;
+
 const grid = document.querySelector(".grid");
 const resetButton = document.querySelector(".resetButton");
+const slider = document.getElementById("myRange");
+const sliderValue = document.querySelector(".slider-value");
+sliderValue.innerHTML = `${DEFAULT_SIZE} x ${DEFAULT_SIZE}`;
 
 let mouseDown = false;
 document.body.onmousedown = () => (mouseDown = true);
 document.body.onmouseup = () => (mouseDown = false);
 
-resetButton.addEventListener("click", resetGrid);
+// Update the current slider value (each time you drag the slider handle)
+slider.oninput = function () {
+  size = parseInt(this.value);
+  sliderValue.innerHTML = `${this.value} x ${this.value}`;
+  resetGrid(size);
+};
+
+resetButton.addEventListener("click", resetGrid(size));
 
 window.onload = () => {
-  createGrid();
+  createGrid(size);
 };
