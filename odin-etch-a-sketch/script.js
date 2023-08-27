@@ -1,6 +1,6 @@
 function createGrid() {
   // Define the grid dimensions
-  const size = 10;
+  const size = 32;
 
   grid.style.gridTemplateColumns = `repeat(${size},1fr)`;
   grid.style.gridTemplateRows = `repeat(${size},1fr)`;
@@ -10,11 +10,14 @@ function createGrid() {
     const cell = document.createElement("div");
     cell.classList.add("grid-cell");
     cell.addEventListener("mouseover", changeColor);
+    cell.addEventListener("mousedown", changeColor);
     grid.appendChild(cell);
   }
 }
 
 function changeColor(e) {
+  if (e.type === "mouseover" && !mouseDown) return;
+
   e.target.style.backgroundColor = "black";
 }
 
@@ -33,6 +36,12 @@ console.log("Hello World!");
 const grid = document.querySelector(".grid");
 const resetButton = document.querySelector(".resetButton");
 
-createGrid();
+let mouseDown = false;
+document.body.onmousedown = () => (mouseDown = true);
+document.body.onmouseup = () => (mouseDown = false);
 
 resetButton.addEventListener("click", resetGrid);
+
+window.onload = () => {
+  createGrid();
+};
