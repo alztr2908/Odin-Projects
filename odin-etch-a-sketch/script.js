@@ -1,3 +1,10 @@
+// sanity check
+console.log("Hello World!");
+
+const DEFAULT_SIZE = 16;
+
+let currentSize = DEFAULT_SIZE;
+
 function createGrid(size) {
   // Define the grid dimensions
 
@@ -24,17 +31,14 @@ function clearGrid() {
   grid.textContent = ""; // remove all child of the grid
 }
 
-function resetGrid(size) {
+function resetGrid() {
   clearGrid();
-  createGrid(size); // create new grid
+  createGrid(currentSize); // create new grid
 }
 
-// sanity check
-console.log("Hello World!");
-
-const DEFAULT_SIZE = 16;
-
-let size = DEFAULT_SIZE;
+function changeSize(size) {
+  currentSize = size;
+}
 
 const grid = document.querySelector(".grid");
 const resetButton = document.querySelector(".resetButton");
@@ -48,13 +52,14 @@ document.body.onmouseup = () => (mouseDown = false);
 
 // Update the current slider value (each time you drag the slider handle)
 slider.oninput = function () {
-  size = parseInt(this.value);
+  // size = parseInt(this.value);
+  changeSize(parseInt(this.value));
   sliderValue.innerHTML = `${this.value} x ${this.value}`;
-  resetGrid(size);
+  resetGrid();
 };
 
-resetButton.addEventListener("click", resetGrid(size));
+resetButton.addEventListener("click", resetGrid);
 
 window.onload = () => {
-  createGrid(size);
+  createGrid(currentSize);
 };
