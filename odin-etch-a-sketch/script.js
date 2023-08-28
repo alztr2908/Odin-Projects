@@ -36,8 +36,18 @@ function resetGrid() {
   createGrid(currentSize); // create new grid
 }
 
-function changeSize(size) {
+function setCurrentSize(size) {
   currentSize = size;
+}
+
+function changeSize(value) {
+  setCurrentSize(parseInt(value));
+  updateSliderValue(value);
+  resetGrid();
+}
+
+function updateSliderValue(value) {
+  sliderValue.innerHTML = `${value} x ${value}`;
 }
 
 const grid = document.querySelector(".grid");
@@ -51,12 +61,8 @@ document.body.onmousedown = () => (mouseDown = true);
 document.body.onmouseup = () => (mouseDown = false);
 
 // Update the current slider value (each time you drag the slider handle)
-slider.oninput = function () {
-  // size = parseInt(this.value);
-  changeSize(parseInt(this.value));
-  sliderValue.innerHTML = `${this.value} x ${this.value}`;
-  resetGrid();
-};
+slider.onchange = (e) => changeSize(e.target.value);
+slider.onmousemove = (e) => updateSliderValue(e.target.value);
 
 resetButton.addEventListener("click", resetGrid);
 
