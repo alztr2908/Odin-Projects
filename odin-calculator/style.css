@@ -4,6 +4,25 @@
   box-sizing: border-box;
 }
 
+.screen {
+  width: 400px;
+  border: 1px solid black;
+  text-align: right;
+  word-wrap: break-word;
+  word-break: break-all;
+  margin-bottom: 20px;
+}
+
+.screen-last {
+  min-height: 32px;
+  font-size: 20px;
+}
+
+.screen-current {
+  min-height: 64px;
+  font-size: 40px;
+}
+
 .key-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
