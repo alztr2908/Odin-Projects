@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.key-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  width: 400px;
+  height: 400px;
+  border: 1px solid black;
+  gap: 10px;
+}
+
+.span-2 {
+  grid-column: span 2;
+}
+
+.keys {
+  border: 1px solid black;
+}
